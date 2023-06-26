@@ -1,2 +1,2 @@
-# SI_Constituyentes_EPIIS
-Un sistema de información de seguimiento de los constituyentes de la Escuela Profesional de Ingeniería Informática y de sistemas – UNSAAC. Proyecto que se realiza en el curso de Ingeniería de Software I. 
+# unapnet8
+Sistema de matr�culas para Docentes y Estudiantes via Web version 2.0 of Juan Flores-Moroco @ajaflorez
