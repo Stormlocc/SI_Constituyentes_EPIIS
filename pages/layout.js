@@ -8,7 +8,7 @@ const Layout = () => {
       <Row>
         <Col xl={12} lg={12} md={12} sm={12}>
           <div className="text-center mb-7">
-            <h1 className="display-4">Layouts</h1>
+            <h1 className="display-4">Layouts KEE</h1>
             <p>
               Customize your overview page layout. Choose the one that best fits
               your needs.
