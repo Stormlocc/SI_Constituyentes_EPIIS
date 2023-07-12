@@ -1,0 +1,2 @@
+npx es una herramienta que permite ejecutar paquetes de Node.js sin necesidad de instalarlos globalmente. Al utilizar npx, puedes ejecutar comandos de paquetes instalados localmente.
+1. descargamos del git de adminlte las carpetas dist y pluging que son agregados a /public
