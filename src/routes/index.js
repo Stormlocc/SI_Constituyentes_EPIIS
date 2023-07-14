@@ -17,13 +17,16 @@ router.post('/signup', passport.authenticate('local-signup', {
 }))
 //enviar
 router.get('/signin', (req, res, next) => {
-    //res.render('signin')
+    res.render('signin')
 })
 //escuchar
-router.post('/signin', (req, res, next) => {
-    //console.log(req.body)
-    //res.send("recibido")
-})
+router.post('/signin', passport.authenticate('local-signin', {
+    successRedirect: '/profile',
+    failureRedirect: '/signin',
+    passReqToCallback: true
+}))
+
+
 
 router.get('/profile',(req,res,next)=>{
     res.render('profile')

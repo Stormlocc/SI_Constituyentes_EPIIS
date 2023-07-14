@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login node</title>
+</head>
+
+<body>
+    <h1>Pagina web GAAAA</h1>
+    <!--Crear mensaje err para el up-->
+    <% if(signupMessage){ %>
+        <div>
+            <%= signupMessage%>
+        </div>
+        <% } %>
+        
+    <!--Crear mensaje err para el in-->
+    <% if(signinMessage){ %>
+        <div>
+            <%= signinMessage%>
+        </div>
+    <% } %>
+
+    <%- body %>
+</body>
+
+</html>

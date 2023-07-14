@@ -43,6 +43,7 @@ app.use(passport.session())
 //creando un middwlere por si ya existe usuario
 app.use((req, res, next)=>{
   //declarar una vairable glboal en toda la aplicacion
+  app.locals.signinMessage = req.flash('signinMessage')
   app.locals.signupMessage = req.flash('signupMessage')
   // que continue con el codigo sino se queda estancado
   next()
