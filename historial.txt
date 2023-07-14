@@ -1,2 +1,9 @@
 npx es una herramienta que permite ejecutar paquetes de Node.js sin necesidad de instalarlos globalmente. Al utilizar npx, puedes ejecutar comandos de paquetes instalados localmente.
 1. descargamos del git de adminlte las carpetas dist y pluging que son agregados a /public
+2. estamos instalando npm install express mongoose ejs-mate connect-flash morgan passport passport-local bcryptjs
+esto para facilitar el desarrollo del codigo
+3. npm i nodemon -D
+4. Estamos utilizando un motor de plantilla nose para que pero asi es el tutorial de fazt code para crear un login
+
+5. Utilizamos asinc para evitar callback y promesas
+
