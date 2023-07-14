@@ -26,10 +26,25 @@ router.post('/signin', passport.authenticate('local-signin', {
     passReqToCallback: true
 }))
 
+router.get('/logout', (req, res, next) => {
+    req.logout((err) => {
+        if (err) return next(err); 
+        res.redirect("/");
+    })
+  })
 
-
-router.get('/profile',(req,res,next)=>{
+router.get('/profile',isAuthenticated, (req,res,next)=>{
     res.render('profile')
 })
+
+//Middleware que ejecuta antes de acceder a alguna ruta
+function isAuthenticated(req, res, next){
+    if(req.isAuthenticated()){
+        return next()
+    }
+    else{
+        res.redirect('/')
+    }
+}
 
 module.exports = router

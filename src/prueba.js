@@ -45,6 +45,8 @@ app.use((req, res, next)=>{
   //declarar una vairable glboal en toda la aplicacion
   app.locals.signinMessage = req.flash('signinMessage')
   app.locals.signupMessage = req.flash('signupMessage')
+  //trae losd atos de request user
+  app.locals.user = req.user
   // que continue con el codigo sino se queda estancado
   next()
 })
