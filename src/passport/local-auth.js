@@ -17,7 +17,7 @@ passport.deserializeUser(async(id,done)=>{
 
 
 //establecemos como usaremos nuestro metodo
-passport.use('local-sigup', new LocalStrategy({
+passport.use('local-signup', new LocalStrategy({
     // el valor el el name de form
     usernameField: 'email',
     passwordField: 'password',

@@ -4,7 +4,7 @@ const express = require('express')
 const engine = require('ejs-mate')
 const path = require('path')
 const morgan = require('morgan')
-const passport = require('./passport/local-auth')
+const passport = require('passport')
 
 // INICIALIZACIONES
 const app = express()
@@ -21,6 +21,7 @@ app.set('view engine','ejs')
 app.set('port', process.env.PORT || 3000)
 // Middlewares son funciones que se ejecutan antes que pasen a las rutas
 // como para procesar datos de los archivos clientes ya sea mostranod en consola los eventos
+// passport se utiliza como un middleware
 app.use(morgan('dev'))
 //recibir los datos desde el cliente (puedem ser json)
 app.use(express.urlencoded({extended:false}))

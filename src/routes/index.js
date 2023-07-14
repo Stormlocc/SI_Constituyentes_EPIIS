@@ -6,20 +6,21 @@ router.get('/', (req, res, next) => {
 })
 //enviar
 router.get('/signup',(req,res,next)=>{
-    //res.render('signup')
+    res.render('signup')
 })
 //escuchar
 router.post('/signup',(req,res,next)=>{
-    
+    console.log(req.body)
+    res.send("recibido")
 })
 //enviar
 router.get('/signin',(req,res,next)=>{
-    res.render('signin')
+    //res.render('signin')
 })
 //escuchar
 router.post('/signin',(req,res,next)=>{
-    console.log(req.body)
-    res.send("recibido")
+    //console.log(req.body)
+    //res.send("recibido")
 })
 
 

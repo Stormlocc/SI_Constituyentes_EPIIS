@@ -7,3 +7,7 @@ esto para facilitar el desarrollo del codigo
 
 5. Utilizamos asinc para evitar callback y promesas
 
+6. instalamos otra verison de bcryptjs xq la anterior es obsoleta
+
+7. para mantener la session instalamos npm i express-session
+
