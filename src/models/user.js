@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 //const bcrypt = require('bcrypt-nodejs')
 const bcrypt = require('bcryptjs');
-
+//permite deifinir el esquema de datos o tareas
 const {Schema} = mongoose
 
 //TODO: realizar con una nueva libreria que es const bcrypt = require('bcryptjs');
