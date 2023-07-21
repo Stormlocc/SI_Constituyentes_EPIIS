@@ -7,10 +7,7 @@ import Footer from './componentes/Footer'
 export default function App() {
   return (
     <div>
-      <Header/>
-      <Aside/>
-      <Content/>
-      <Footer/>
+      <h1>app js</h1>
     </div>
   )
 }

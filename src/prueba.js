@@ -1,4 +1,3 @@
-//Esta pagina genera que ya no cargue el comit de version ADMILTE 1.0
 //ARCHIVO principal del servidor
 const express = require('express')
 const engine = require('ejs-mate')
@@ -15,17 +14,21 @@ require('./database')
 require('./passport/local-auth')
 
 /* SETTINGS */
-app.set('views',path.join(__dirname,'views'))
+//aqui indica que ahi se escribiran el codigo react
+//app.set('views',path.join(__dirname,'views'))
 // asignando motor de planitlla
 app.engine('ejs',engine)
 //establer el motor de plantilla
 app.set('view engine','ejs')
 // puerto que da el sistema operativo o puerto 3000
 app.set('port', process.env.PORT || 3000)
+
+/* MIDDLEWARES */
 // Middlewares son funciones que se ejecutan antes que pasen a las rutas
-// como para procesar datos de los archivos clientes ya sea mostranod en consola los eventos
-// passport se utiliza como un middleware
-app.use(morgan('dev'))
+// como para procesar datos de los archivos clientes mostrando en consola los eventos
+//app.use(morgan('dev')) //son los GET/ PORT/ en consola
+
+app.use(express.json())
 //recibir los datos desde el cliente (puedem ser json)
 app.use(express.urlencoded({extended:false}))
 // inicializamos la sesion este archivo no tiene que estar vulnerable
@@ -51,12 +54,17 @@ app.use((req, res, next)=>{
   next()
 })
 
+/* ESTATIC FILES */
+// indica que public sera enviado al navegador
+app.use(express.static(path.join(__dirname,'../public')))
+
+/* RUTAS */
 // Routes INICIA PAGINA
-app.use('/', require('./routes/index'))
+app.use('/api/tasks', require('./routes/rutas'))
 
 
 
 // iniciar el servidor
 app.listen(app.get('port'), ()=>{
-  console.log('Server on port',app.get('port'))
+  console.log(`Server on port ${app.get('port')}`)
 })
