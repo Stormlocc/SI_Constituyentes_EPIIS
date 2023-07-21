@@ -37,320 +37,65 @@ export default function Aside() {
             <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 {/* Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library */}
+                
                 <li className="nav-item menu-open">
                 <a href="#" className="nav-link active">
-                    <i className="nav-icon fas fa-tachometer-alt" />
-                    <p>
-                    Otros sitios web
-                    <i className="right fas fa-angle-left" />
+                    <i className="fab fa-chrome" />
+                    <p> Otros sitios web
+                        <i className="right fas fa-angle-left" />
                     </p>
                 </a>
                 <ul className="nav nav-treeview">
                     <li className="nav-item">
-                    <a href="./index.html" className="nav-link">
-                        <i className="far fa-circle nav-icon" />
-                        <p>Dashboard v1</p>
+                    <a href="http://in.unsaac.edu.pe/home/" className="nav-link">
+                        <i className="fas fa-eye" />
+                        <p> Facebook</p>
                     </a>
                     </li>
                     <li className="nav-item">
-                    <a href="./index2.html" className="nav-link">
-                        <i className="far fa-circle nav-icon" />
-                        <p>Dashboard v2</p>
+                    <a href="http://in.unsaac.edu.pe/home/" className="nav-link">
+                        <i className="fas fa-eye" />
+                        <p> Sitio web EPISIS</p>
                     </a>
                     </li>
                     <li className="nav-item">
-                    <a href="./index3.html" className="nav-link active">
-                        <i className="far fa-circle nav-icon" />
-                        <p>Dashboard v3</p>
+                    <a href="http://in.unsaac.edu.pe/home/" className="nav-link">
+                        <i className="fas fa-eye" />
+                        <p> Sitio web UNSAAC</p>
                     </a>
                     </li>
                 </ul>
                 </li>
-                
-                
-                
-                <li className="nav-item">
-                <a href="#" className="nav-link">
-                    <i className="nav-icon fas fa-tree" />
-                    <p>
-                    UI Elements
-                    <i className="fas fa-angle-left right" />
-                    </p>
-                </a>
-                <ul className="nav nav-treeview">
-                    <li className="nav-item">
-                    <a href="pages/UI/general.html" className="nav-link">
-                        <i className="far fa-circle nav-icon" />
-                        <p>General</p>
-                    </a>
-                    </li>
-                    <li className="nav-item">
-                    <a href="pages/UI/icons.html" className="nav-link">
-                        <i className="far fa-circle nav-icon" />
-                        <p>Icons</p>
-                    </a>
-                    </li>
-                    <li className="nav-item">
-                    <a href="pages/UI/buttons.html" className="nav-link">
-                        <i className="far fa-circle nav-icon" />
-                        <p>Buttons</p>
-                    </a>
-                    </li>
-                    <li className="nav-item">
-                    <a href="pages/UI/sliders.html" className="nav-link">
-                        <i className="far fa-circle nav-icon" />
-                        <p>Sliders</p>
-                    </a>
-                    </li>
-                    <li className="nav-item">
-                    <a href="pages/UI/modals.html" className="nav-link">
-                        <i className="far fa-circle nav-icon" />
-                        <p>Modals &amp; Alerts</p>
-                    </a>
-                    </li>
-                    <li className="nav-item">
-                    <a href="pages/UI/navbar.html" className="nav-link">
-                        <i className="far fa-circle nav-icon" />
-                        <p>Navbar &amp; Tabs</p>
-                    </a>
-                    </li>
-                    <li className="nav-item">
-                    <a href="pages/UI/timeline.html" className="nav-link">
-                        <i className="far fa-circle nav-icon" />
-                        <p>Timeline</p>
-                    </a>
-                    </li>
-                    <li className="nav-item">
-                    <a href="pages/UI/ribbons.html" className="nav-link">
-                        <i className="far fa-circle nav-icon" />
-                        <p>Ribbons</p>
-                    </a>
-                    </li>
-                </ul>
-                </li>
-                
-                
+
                 <li className="nav-header">MENU OPCIONES</li>
                
+                <li className="nav-item">
+                <a href="pages/kanban.html" className="nav-link">
+                    <i className="nav-icon fas fa-columns" />
+                    <p>
+                    Actualizar informacion
+                    </p>
+                </a>
+                </li>
+
+                <li className="nav-item">
+                <a href="pages/kanban.html" className="nav-link">
+                    <i className="nav-icon fas fa-columns" />
+                    <p>
+                    Ver Historial
+                    </p>
+                </a>
+                </li>
                 
                 <li className="nav-item">
                 <a href="pages/kanban.html" className="nav-link">
                     <i className="nav-icon fas fa-columns" />
                     <p>
-                    Kanban Board
+                    Listar constituyentes
                     </p>
                 </a>
                 </li>
-                
-                <li className="nav-item">
-                <a href="#" className="nav-link">
-                    <i className="nav-icon far fa-plus-square" />
-                    <p>
-                    Extras
-                    <i className="fas fa-angle-left right" />
-                    </p>
-                </a>
-                <ul className="nav nav-treeview">
-                    <li className="nav-item">
-                    <a href="#" className="nav-link">
-                        <i className="far fa-circle nav-icon" />
-                        <p>
-                        Login &amp; Register v1
-                        <i className="fas fa-angle-left right" />
-                        </p>
-                    </a>
-                    <ul className="nav nav-treeview">
-                        <li className="nav-item">
-                        <a href="pages/examples/login.html" className="nav-link">
-                            <i className="far fa-circle nav-icon" />
-                            <p>Login v1</p>
-                        </a>
-                        </li>
-                        <li className="nav-item">
-                        <a href="pages/examples/register.html" className="nav-link">
-                            <i className="far fa-circle nav-icon" />
-                            <p>Register v1</p>
-                        </a>
-                        </li>
-                        <li className="nav-item">
-                        <a href="pages/examples/forgot-password.html" className="nav-link">
-                            <i className="far fa-circle nav-icon" />
-                            <p>Forgot Password v1</p>
-                        </a>
-                        </li>
-                        <li className="nav-item">
-                        <a href="pages/examples/recover-password.html" className="nav-link">
-                            <i className="far fa-circle nav-icon" />
-                            <p>Recover Password v1</p>
-                        </a>
-                        </li>
-                    </ul>
-                    </li>
-                    <li className="nav-item">
-                    <a href="#" className="nav-link">
-                        <i className="far fa-circle nav-icon" />
-                        <p>
-                        Login &amp; Register v2
-                        <i className="fas fa-angle-left right" />
-                        </p>
-                    </a>
-                    <ul className="nav nav-treeview">
-                        <li className="nav-item">
-                        <a href="pages/examples/login-v2.html" className="nav-link">
-                            <i className="far fa-circle nav-icon" />
-                            <p>Login v2</p>
-                        </a>
-                        </li>
-                        <li className="nav-item">
-                        <a href="pages/examples/register-v2.html" className="nav-link">
-                            <i className="far fa-circle nav-icon" />
-                            <p>Register v2</p>
-                        </a>
-                        </li>
-                        <li className="nav-item">
-                        <a href="pages/examples/forgot-password-v2.html" className="nav-link">
-                            <i className="far fa-circle nav-icon" />
-                            <p>Forgot Password v2</p>
-                        </a>
-                        </li>
-                        <li className="nav-item">
-                        <a href="pages/examples/recover-password-v2.html" className="nav-link">
-                            <i className="far fa-circle nav-icon" />
-                            <p>Recover Password v2</p>
-                        </a>
-                        </li>
-                    </ul>
-                    </li>
-                    <li className="nav-item">
-                    <a href="pages/examples/lockscreen.html" className="nav-link">
-                        <i className="far fa-circle nav-icon" />
-                        <p>Lockscreen</p>
-                    </a>
-                    </li>
-                    <li className="nav-item">
-                    <a href="pages/examples/legacy-user-menu.html" className="nav-link">
-                        <i className="far fa-circle nav-icon" />
-                        <p>Legacy User Menu</p>
-                    </a>
-                    </li>
-                    <li className="nav-item">
-                    <a href="pages/examples/language-menu.html" className="nav-link">
-                        <i className="far fa-circle nav-icon" />
-                        <p>Language Menu</p>
-                    </a>
-                    </li>
-                    <li className="nav-item">
-                    <a href="pages/examples/404.html" className="nav-link">
-                        <i className="far fa-circle nav-icon" />
-                        <p>Error 404</p>
-                    </a>
-                    </li>
-                    <li className="nav-item">
-                    <a href="pages/examples/500.html" className="nav-link">
-                        <i className="far fa-circle nav-icon" />
-                        <p>Error 500</p>
-                    </a>
-                    </li>
-                    <li className="nav-item">
-                    <a href="pages/examples/pace.html" className="nav-link">
-                        <i className="far fa-circle nav-icon" />
-                        <p>Pace</p>
-                    </a>
-                    </li>
-                    <li className="nav-item">
-                    <a href="pages/examples/blank.html" className="nav-link">
-                        <i className="far fa-circle nav-icon" />
-                        <p>Blank Page</p>
-                    </a>
-                    </li>
-                    <li className="nav-item">
-                    <a href="starter.html" className="nav-link">
-                        <i className="far fa-circle nav-icon" />
-                        <p>Starter Page</p>
-                    </a>
-                    </li>
-                </ul>
-                </li>
-                
-                <li className="nav-header">MISCELLANEOUS</li>
-                <li className="nav-item">
-                <a href="iframe.html" className="nav-link">
-                    <i className="nav-icon fas fa-ellipsis-h" />
-                    <p>Tabbed IFrame Plugin</p>
-                </a>
-                </li>
-                <li className="nav-item">
-                <a href="https://adminlte.io/docs/3.1/" className="nav-link">
-                    <i className="nav-icon fas fa-file" />
-                    <p>Documentation</p>
-                </a>
-                </li>
-                <li className="nav-header">CONSULTAS POR NIVEL</li>
-                <li className="nav-item">
-                <a href="#" className="nav-link">
-                    <i className="fas fa-circle nav-icon" />
-                    <p>Level 1</p>
-                </a>
-                </li>
-                <li className="nav-item">
-                <a href="#" className="nav-link">
-                    <i className="nav-icon fas fa-circle" />
-                    <p>
-                    Level 1
-                    <i className="right fas fa-angle-left" />
-                    </p>
-                </a>
-                <ul className="nav nav-treeview">
-                    <li className="nav-item">
-                    <a href="#" className="nav-link">
-                        <i className="far fa-circle nav-icon" />
-                        <p>Level 2</p>
-                    </a>
-                    </li>
-                    <li className="nav-item">
-                    <a href="#" className="nav-link">
-                        <i className="far fa-circle nav-icon" />
-                        <p>
-                        Level 2
-                        <i className="right fas fa-angle-left" />
-                        </p>
-                    </a>
-                    <ul className="nav nav-treeview">
-                        <li className="nav-item">
-                        <a href="#" className="nav-link">
-                            <i className="far fa-dot-circle nav-icon" />
-                            <p>Level 3</p>
-                        </a>
-                        </li>
-                        <li className="nav-item">
-                        <a href="#" className="nav-link">
-                            <i className="far fa-dot-circle nav-icon" />
-                            <p>Level 3</p>
-                        </a>
-                        </li>
-                        <li className="nav-item">
-                        <a href="#" className="nav-link">
-                            <i className="far fa-dot-circle nav-icon" />
-                            <p>Level 3</p>
-                        </a>
-                        </li>
-                    </ul>
-                    </li>
-                    <li className="nav-item">
-                    <a href="#" className="nav-link">
-                        <i className="far fa-circle nav-icon" />
-                        <p>Level 2</p>
-                    </a>
-                    </li>
-                </ul>
-                </li>
-                <li className="nav-item">
-                <a href="#" className="nav-link">
-                    <i className="fas fa-circle nav-icon" />
-                    <p>Level 1</p>
-                </a>
-                </li>
-                
+  
             </ul>
             </nav>
             {/* /.sidebar-menu */}
