@@ -15,11 +15,12 @@ require('./passport/local-auth')
 
 /* SETTINGS */
 //aqui indica que ahi se escribiran el codigo react
-//app.set('views',path.join(__dirname,'views'))
+app.set('views',path.join(__dirname,'views'))
 // asignando motor de planitlla
 app.engine('ejs',engine)
 //establer el motor de plantilla
 app.set('view engine','ejs')
+
 // puerto que da el sistema operativo o puerto 3000
 app.set('port', process.env.PORT || 3000)
 
@@ -60,7 +61,7 @@ app.use(express.static(path.join(__dirname,'../public')))
 
 /* RUTAS */
 // Routes INICIA PAGINA
-app.use('/api/tasks', require('./routes/rutas'))
+app.use('/', require('./routes/rutas'))
 
 
 

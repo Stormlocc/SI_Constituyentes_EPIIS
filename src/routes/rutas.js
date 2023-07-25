@@ -4,11 +4,17 @@ const passport = require('passport');
 const user = require('../models/user')
 
 //Esto lleva a view/index.ejs xq este achivo de rutas es llamado en servidor
+router.get('/', (req, res, next) => {
+    res.json({status: "estas en index raiz"})
+})
+/**
+ * 
 router.get('/', async(req, res, next) => {
     const users = await user.find()
     res.json(users)
     //res.render('index')
 })
+*/
 router.post('/', async(req, res, next) => {
     const {email, password} = req.body
     const newUser = new user({ email, password})
@@ -27,7 +33,8 @@ router.put('/:id', async(req, res, next) => {
 })
 // Al link /signup enviamos el render
 router.get('/signup', (req, res, next) => {
-    res.render('signup')
+    res.json({status: "estas en signup"})
+    //res.render('signup')
 })
 // Del link /signup escuchar segun como definimos el local-auth async
 router.post('/signup', passport.authenticate('local-signup', {
