@@ -33,8 +33,7 @@ router.put('/:id', async(req, res, next) => {
 })
 // Al link /signup enviamos el render
 router.get('/signup', (req, res, next) => {
-    res.json({status: "estas en signup"})
-    //res.render('signup')
+    res.render('signup')
 })
 // Del link /signup escuchar segun como definimos el local-auth async
 router.post('/signup', passport.authenticate('local-signup', {

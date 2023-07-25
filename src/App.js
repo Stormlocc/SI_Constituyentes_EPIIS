@@ -8,6 +8,7 @@ export default function App() {
   return (
     <div>
       <h1>app js</h1>
+      <Footer/>
     </div>
   )
 }
