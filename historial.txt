@@ -1,13 +1,25 @@
-npx es una herramienta que permite ejecutar paquetes de Node.js sin necesidad de instalarlos globalmente. Al utilizar npx, puedes ejecutar comandos de paquetes instalados localmente.
-1. descargamos del git de adminlte las carpetas dist y pluging que son agregados a /public
-2. estamos instalando npm install express mongoose ejs-mate connect-flash morgan passport passport-local bcryptjs
-esto para facilitar el desarrollo del codigo
-3. npm i nodemon -D
-4. Estamos utilizando un motor de plantilla nose para que pero asi es el tutorial de fazt code para crear un login
+Dividimos 2 partes back y front 
+Backende sera con node express mongodb
+    empezamos en back con > npm init -y
+    cors (midleware)sirve para comunicarse con el front con back utilziando webpack para q 2 servidores puedan intercamibar datos
+    > npm i express mongoose cors dotenv
+    reiniciar el scriopt del servidor 
+    > npm i nodemon -D (este es similar a webpack)
+    estructura js y carpetas:
+        index.js arranca el *servidor* aqui se importa los modulos
+        app.js se define y obitene codigo solo de *servidor* o frmaewok 
+        databse.js solo tiene la coneccion.
+        cotroller para las funciones del servidor segun las urls 
+        models para modelar o definir los datos con un squema
+        routes seran las urls del servidor
+    modificar el pack.json para ejecutar nodemon con npm run dev 
+Frontend:
+    Neceistamos conectar con las rutas entonces instalamos
+    >npm install react-router-dom
+    Las rutas tienen que cargat boostrap
+    >npm install boostrap
+    Agregamos carpetas admin lte ddist y pulginh a front node_modules
 
-5. Utilizamos asinc para evitar callback y promesas
-
-6. instalamos otra verison de bcryptjs xq la anterior es obsoleta
-
-7. para mantener la session instalamos npm i express-session
-
+    Para mejorar las preticiones http instlar fetch
+    >npm install axios
+    
