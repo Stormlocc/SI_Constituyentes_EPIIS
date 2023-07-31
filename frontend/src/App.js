@@ -11,8 +11,8 @@ import Buscar from './componentes/Buscar';
 import Consultar from './componentes/Consultar'
 import Historial from './componentes/Historial'
 
-import 'bootstrap/dist/css/adminlte.min.css'
-import 'bootstrap/plugins/fontawesome-free/css/all.min.css'
+//import 'bootstrap/dist/css/adminlte.min.css'
+//import 'bootstrap/plugins/fontawesome-free/css/all.min.css'
 
 function App() {
   return (
