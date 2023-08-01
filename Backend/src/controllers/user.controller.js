@@ -1,13 +1,18 @@
 /**********  Este archivo es llamado de user.router.js **********/
 
 //Importamos el modelo 
+const passport = require('passport');
 const User = require('../models/user');
 const userCtrl = {};
 // Este archivo es llamado de Users.router.js
-userCtrl.getUsersLogin = async (req,res) => {
-    const arregloUsers = await User.find();
-    res.json(arregloUsers);
+
+userCtrl.signin = (req, res) => {
+  // Si la autenticación es exitosa, passport.authenticate habrá colocado el usuario autenticado en req.user
+  // Puedes acceder al usuario autenticado con req.user
+  // Enviar una respuesta JSON indicando la autenticación exitosa
+  res.json({ success: true, message: 'Autenticación exitosa' });
 };
+
 
 // Crea usuario
 

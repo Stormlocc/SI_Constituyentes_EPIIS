@@ -9,21 +9,15 @@ const {crearUser, getUser, deleteUser, signin} = require('../controllers/user.co
 // podemos responder con  res.send res.json etc esto esta en controller
 
 router.route('/')
-  .get(signin)
+  .post(passport.authenticate('local-signin'),signin)
 
-router.route('/signin')
-  .post(signin);
-    /*
-    .post(passport.authenticate('local-signup', {
-        passReqToCallback: true
-    }));
-    */
-    
-
-router.route('/:id')
-    .get(getUser)
-    .delete(deleteUser);
-
+  /** 
+   * 
+  .post(passport.authenticate('local-signup', {
+    passReqToCallback: true
+  }));
+  */
+  
 router.route('/profile', (req,res,next)=>{
     res.send('holaaaa')
 })

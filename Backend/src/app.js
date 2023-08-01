@@ -15,6 +15,7 @@ app.use(express.json());//tipo de dato a cambiar
 // los parametros son(lo q usas, lo q respondes en f(x))
 app.use('/api/perfil',require('./routes/perfil.route'));
 app.use('/api/users', require('./routes/user.route'));
+app.use('/api/users/signin', require('./routes/user.route.signin'));
 //app.use('/api/users', require('./routes/user.route/signin'));
 app.get('/user',(req,res)=>{res.send('User routes')});
 
