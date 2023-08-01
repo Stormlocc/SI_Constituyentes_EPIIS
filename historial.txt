@@ -9,6 +9,8 @@ Backende sera con node express mongodb
     > npm i connect-flash morgan passport passport-local express
     cifrar las contraseñas con  bcryptjs
     > npm i bcryptjs
+    para mantener la sesion abierta
+    > npm i express-session
     estructura js y carpetas:
         index.js arranca el *servidor* aqui se importa los modulos
         app.js se define y obitene codigo solo de *servidor* o frmaewok 

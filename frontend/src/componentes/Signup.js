@@ -6,6 +6,7 @@ export default function Signup() {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = async(event) => {
     event.preventDefault();
@@ -17,20 +18,23 @@ export default function Signup() {
         password: password,
       });
 
-      // Aquí puedes manejar la respuesta del servidor si es necesario
       console.log(response.data);
+      // Si la respuesta es exitosa, redirige al usuario a una página específica
+      // Puedes utilizar una condición para determinar a qué página redirigir
+      if (response.data.message === 'Usuario registrado exitosamente') {
+        navigate('/dashboard'); // Por ejemplo, redirige a '/dashboard'
+      } else {
+        navigate('/signup'); // Redirige a '/signup' si ocurre algún error de validación en el servidor
+      }
     } catch (error) {
-      // Manejo de errores en caso de que la solicitud falle
       console.error('Error al enviar los datos:', error);
     }
-    // Por ejemplo, si la autenticación es exitosa, redirige a '/dashboard'
-    navigate('/dashboard');
   };
 
   return (
     <>
       <div>
-        <h1>Signup</h1>
+        <h1>Signup Registrar usuario</h1>
         <Link to="/dashboard">Dashboard</Link>
       </div>
 
@@ -54,6 +58,7 @@ export default function Signup() {
               <button type="submit">Ingresar</button>
             </div>
           </form>
+          {error && <div>{error}</div>} {/* Mostrar el mensaje de error si existe */}
       </div>
     </>
   );

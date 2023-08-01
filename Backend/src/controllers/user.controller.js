@@ -2,7 +2,6 @@
 
 //Importamos el modelo 
 const User = require('../models/user');
-
 const userCtrl = {};
 // Este archivo es llamado de Users.router.js
 userCtrl.getUsersLogin = async (req,res) => {
@@ -11,11 +10,12 @@ userCtrl.getUsersLogin = async (req,res) => {
 };
 
 // Crea usuario
+
 userCtrl.crearUser = async(req,res) => {
     //que recibe
     console.log(req.body);
     const {email, password} = req.body;
-
+    
     const newUser = new User({
         email: email,
         password: password,
@@ -23,8 +23,21 @@ userCtrl.crearUser = async(req,res) => {
     });
     await newUser.save();
     res.json({message: 'guardado'})
-
+    
 };
+
+
+userCtrl.crearUser = async (req, res) => {
+    try {
+      const { email, password } = req.body;
+      const newUser = new User({ email, password });
+      await newUser.save();
+      res.json({ message: 'Usuario registrado exitosamente' });
+    } catch (error) {
+      // Si ocurre un error de validación, envía un objeto con mensajes de error en la respuesta
+      res.status(400).json({ error: 'Error al registrar el usuario', validationErrors: error.errors });
+    }
+  };
 
 userCtrl.getUser = (req,res) => res.json({usuario: 'Users de pepito'});
 
