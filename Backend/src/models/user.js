@@ -1,5 +1,5 @@
 const {Schema, model} = require('mongoose')
-const bcryptjs = require('bcryptjs')
+const bcrypt = require('bcryptjs');
 
 const userSchema = new Schema({
     email : {
@@ -19,13 +19,15 @@ const userSchema = new Schema({
     }
 });
 
-userSchema.methods.encryptPassword = (password)=>{
-    // Que encripte 10 veces la constraseña
-    return bcryptjs.hashSync(password, bcryptjs.genSaltSync(10));
-};
+userSchema.methods.encryptPassword = async function (password) {
+    const salt = await bcrypt.genSalt(10);
+    const hash = await bcrypt.hash(password, salt);
+    return hash;
+  };
+  
 
 userSchema.methods.comparePassword = function(password){
-    return bcryptjs.compareSync(password, this.password)
+    return bcrypt.compareSync(password, this.password)
 }
 
 //como se llamara, cual es el esquema creado y crea la coleccion

@@ -8,26 +8,26 @@ export default function Signup() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleSubmit = async(event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     // Lógica de autenticación y redirección
     try {
       // Realiza una solicitud POST al backend para enviar los datos del formulario
-      const response = await axios.post('http://localhost:4000/api/users', {
+      const response = await axios.post('http://localhost:4000/api/users/signup', {
         email: email,
         password: password,
       });
-
-      console.log(response.data);
+  
       // Si la respuesta es exitosa, redirige al usuario a una página específica
-      // Puedes utilizar una condición para determinar a qué página redirigir
-      if (response.data.message === 'Usuario registrado exitosamente') {
+      if (response.data.success) {
         navigate('/dashboard'); // Por ejemplo, redirige a '/dashboard'
       } else {
-        navigate('/signup'); // Redirige a '/signup' si ocurre algún error de validación en el servidor
+        // Si hay un mensaje de error en la respuesta, muestra el mensaje en el frontend
+        setError(response.data.message || 'Error 1 al iniciar sesión. Verifica tus credenciales de registro.');
       }
     } catch (error) {
       console.error('Error al enviar los datos:', error);
+      setError('Error 2 al iniciar sesión. Verifica tus credenciales de registro.');
     }
   };
 

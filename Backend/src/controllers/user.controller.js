@@ -13,6 +13,16 @@ userCtrl.signin = (req, res) => {
   res.json({ success: true, message: 'Autenticación exitosa' });
 };
 
+userCtrl.signup = (req, res) => {
+  // Asegúrate de que la autenticación sea exitosa antes de enviar la respuesta
+  if (req.isAuthenticated()) {
+    res.json({ success: true, message: 'Registro fallido' });
+  } else {
+    res.status(400).json({ success: false, message: 'Error al registrar el usuario' });
+  }
+};
+
+
 userCtrl.logout = (req, res) => {
   // Utiliza req.logout() para cerrar la sesión del usuario
   req.logout(() => {

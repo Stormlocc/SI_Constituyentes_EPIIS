@@ -13,8 +13,6 @@ import Historial from './componentes/Historial'
 import Signup from './componentes/Signup';
 import Signin from './componentes/Signin';
 
-//import 'bootstrap/dist/css/adminlte.min.css'
-//import 'bootstrap/plugins/fontawesome-free/css/all.min.css'
 
 function App() {
   return (

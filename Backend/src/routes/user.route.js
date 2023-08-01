@@ -1,7 +1,7 @@
 const {Router} = require('express');
 const passport = require('passport')
 const router = Router();
-const {crearUser, getUser, deleteUser, signin, logout} = require('../controllers/user.controller')
+const {signup, getUser, deleteUser, signin, logout} = require('../controllers/user.controller')
 
 // instanciamos Router() 
 // funciona como si fuese la ruta origen una vez se require
@@ -13,6 +13,9 @@ router.route('/')
 
 router.route('/signin')
   .post(passport.authenticate('local-signin'),signin)
+
+router.route('/signup')
+  .post(passport.authenticate('local-signup'),signup)
 
 router.route('/logout')
   .get(logout)
