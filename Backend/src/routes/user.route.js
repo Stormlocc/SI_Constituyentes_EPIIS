@@ -1,7 +1,7 @@
 const {Router} = require('express');
 const passport = require('passport')
 const router = Router();
-const {crearUser, getUser, deleteUser, signin} = require('../controllers/user.controller')
+const {crearUser, getUser, deleteUser, signin, logout} = require('../controllers/user.controller')
 
 // instanciamos Router() 
 // funciona como si fuese la ruta origen una vez se require
@@ -9,16 +9,14 @@ const {crearUser, getUser, deleteUser, signin} = require('../controllers/user.co
 // podemos responder con  res.send res.json etc esto esta en controller
 
 router.route('/')
-  .get(signin)
+  .get((res,req)=>res.send('hola amigos'))
 
 router.route('/signin')
-  .post(signin);
-    /*
-    .post(passport.authenticate('local-signup', {
-        passReqToCallback: true
-    }));
-    */
-    
+  .post(passport.authenticate('local-signin'),signin)
+
+router.route('/logout')
+  .get(logout)
+
 
 router.route('/:id')
     .get(getUser)

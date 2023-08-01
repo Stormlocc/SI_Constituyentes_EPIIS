@@ -1,6 +1,20 @@
 import React from 'react'
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function Header() {
+  const navigate = useNavigate();
+  const handleSignout = async () => {
+    try {
+      // Envía una solicitud GET al backend para cerrar la sesión
+      await axios.get('http://localhost:4000/api/users/logout');
+
+      // Redirecciona al usuario a la página principal después de cerrar sesión
+      navigate('/');
+    } catch (error) {
+      console.error('Error al cerrar sesión:', error);
+    }
+  };
   return (
     <>
         {/* Navbar */}
@@ -133,8 +147,7 @@ export default function Header() {
             </li>
             <li className="nav-item nav-link">
                 <div>
-                <a className="">Cerrar Sesion</a>
-
+                <button onClick={handleSignout}>Cerrar Sesión</button>
                 </div>
 
             </li>

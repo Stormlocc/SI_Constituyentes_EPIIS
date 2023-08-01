@@ -13,9 +13,14 @@ userCtrl.signin = (req, res) => {
   res.json({ success: true, message: 'Autenticación exitosa' });
 };
 
+userCtrl.logout = (req, res) => {
+  // Utiliza req.logout() para cerrar la sesión del usuario
+  req.logout(() => {
+    res.json({ message: 'Sesión cerrada exitosamente' });
+  });
+};
 
 // Crea usuario
-
 userCtrl.crearUser = async(req,res) => {
     //que recibe
     console.log(req.body);
