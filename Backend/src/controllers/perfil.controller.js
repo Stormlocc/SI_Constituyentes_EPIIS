@@ -4,6 +4,7 @@
 const Perfil = require('../models/perfil');
 
 const perfilCtrl = {};
+
 perfilCtrl.getPerfiles = async (req,res) => {
     const arregloPerfiles = await Perfil.find();
     res.json(arregloPerfiles);

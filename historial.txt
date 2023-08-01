@@ -5,6 +5,10 @@ Backende sera con node express mongodb
     > npm i express mongoose cors dotenv
     reiniciar el scriopt del servidor 
     > npm i nodemon -D (este es similar a webpack)
+    instalamos passport  y flash8(mandar mensaje entre paginas) morgan para ver en terminal los hhttps  express(mejor codigo)
+    > npm i connect-flash morgan passport passport-local express
+    cifrar las contraseñas con  bcryptjs
+    > npm i bcryptjs
     estructura js y carpetas:
         index.js arranca el *servidor* aqui se importa los modulos
         app.js se define y obitene codigo solo de *servidor* o frmaewok 
@@ -16,8 +20,8 @@ Backende sera con node express mongodb
 Frontend:
     Neceistamos conectar con las rutas entonces instalamos
     >npm install react-router-dom
-    Las rutas tienen que cargat boostrap
-    >npm install boostrap
+    Las rutas tienen que cargat Bootstrap
+    >npm install bootstrap
     Agregamos carpetas admin lte ddist y pulginh a front node_modules
 
     Para mejorar las preticiones http instlar fetch

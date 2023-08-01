@@ -10,6 +10,8 @@ import ActualizarInformacion from './componentes/ActualizarInformacion';
 import Buscar from './componentes/Buscar';
 import Consultar from './componentes/Consultar'
 import Historial from './componentes/Historial'
+import Signup from './componentes/Signup';
+import Signin from './componentes/Signin';
 
 //import 'bootstrap/dist/css/adminlte.min.css'
 //import 'bootstrap/plugins/fontawesome-free/css/all.min.css'
@@ -20,6 +22,18 @@ function App() {
       <Routes>
 
         <Route path='/'  element={<Portada/>}  />
+
+        <Route path='/signup' element={<>
+                                  <Portada />
+                                <Signup/> 
+        </>
+        } />
+
+        <Route path='/signin' element={<>
+                                  <Portada />
+                                <Signin/> 
+        </>
+        } />
 
         <Route path='/profile' element={<>
                                   <Header />

@@ -1,6 +1,6 @@
 const {Router} = require('express');
 const router = Router();
-const {getUsers, crearUser, getUser, deleteUser} = require('../controllers/user.controller')
+const {crearUser, getUser, deleteUser, getUsersLogin} = require('../controllers/user.controller')
 
 // instanciamos Router() 
 
@@ -8,7 +8,7 @@ const {getUsers, crearUser, getUser, deleteUser} = require('../controllers/user.
 //                .get .post . put .delete (creo se llama rest api)
 // podemos responder con  res.send res.json etc esto esta en controller
 router.route('/')
-    .get(getUsers)
+    .get(getUsersLogin)
     .post(crearUser);
 
 router.route('/:id')
