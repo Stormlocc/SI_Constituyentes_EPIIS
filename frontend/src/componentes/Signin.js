@@ -27,7 +27,13 @@ export default function Signin() {
     } catch (error) {
       // Manejo de errores en caso de que la solicitud falle
       console.error('Error al enviar los datos:', error);
-      setError('Error al iniciar sesión. Verifica tus credenciales.');
+      if (error.response && error.response.data && error.response.data === 'Unauthorized') {
+        // Si el servidor responde con "Unauthorized", muestra un mensaje de error específico
+        setError('Credenciales inválidas. Verifica tu correo electrónico y contraseña.');
+      } else {
+        // Si no hay un mensaje de error específico, muestra un mensaje genérico
+        setError('Error al iniciar sesión. Verifica tus credenciales.');
+      }
     }
   };
 

@@ -18,11 +18,15 @@ passport.use('local-signup', new LocalStrategy({
     newUser.email = email;
     newUser.password = await newUser.encryptPassword(password);
     await newUser.save();
+
+    // Pasa el usuario autenticado al llamar a done
     done(null, newUser);
+
   } catch (error) {
     done(error);
   }
 }));
+
 
 
 passport.use('local-signin', new LocalStrategy({
@@ -32,16 +36,21 @@ passport.use('local-signin', new LocalStrategy({
   try {
     const user = await User.findOne({ email: email });
     if (!user) {
-      return done(null, false, { message: 'Usuario no encontrado' });
+      // El correo electrónico no existe, indica autenticación fallida con mensaje de error específico
+      return done(null, false, { message: 'El correo electrónico no existe.' });
     }
-    if (!user.comparePassword(password)) {
-      return done(null, false, { message: 'Contraseña incorrecta' });
+    const passwordValid = await user.comparePassword(password);
+    if (!passwordValid) {
+      // Contraseña incorrecta, indica autenticación fallida
+      return done(null, false, { message: 'Contraseña incorrecta.' });
     }
+    // Autenticación exitosa, pasa el usuario al callback done
     done(null, user);
   } catch (error) {
     done(error);
   }
 }));
+
 
 //Para mantener la sesiona Activa
 passport.serializeUser((user, done) => {

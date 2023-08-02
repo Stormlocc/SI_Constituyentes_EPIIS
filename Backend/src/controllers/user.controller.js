@@ -1,24 +1,37 @@
 /**********  Este archivo es llamado de user.router.js **********/
 
 //Importamos el modelo 
+const jwt = require('jsonwebtoken')
 const passport = require('passport');
 const User = require('../models/user');
+const token_secreto =  process.env.TOKEN_SECRET
+
 const userCtrl = {};
 // Este archivo es llamado de Users.router.js
 
+userCtrl.getUsers = async (req,res) => {
+  const arregloUsers = await User.find();
+  res.json(arregloUsers);
+};
+
 userCtrl.signin = (req, res) => {
-  // Si la autenticación es exitosa, passport.authenticate habrá colocado el usuario autenticado en req.user
-  // Puedes acceder al usuario autenticado con req.user
-  // Enviar una respuesta JSON indicando la autenticación exitosa
-  res.json({ success: true, message: 'Autenticación exitosa' });
+  // Verifica si el usuario está autenticado
+  if (req.isAuthenticated()) {
+    const token = jwt.sign({ id: req.user._id }, "token_secreto", { expiresIn: 60*60*24 });
+    res.json({ auth: true, token: token });
+  } else {
+    // La autenticación ha fallado, puedes enviar un mensaje de error
+    res.status(401).json({ auth: false, token: null, message: 'Credenciales inválidas' });
+  }
 };
 
 userCtrl.signup = (req, res) => {
-  // Asegúrate de que la autenticación sea exitosa antes de enviar la respuesta
+  // Verifica si el usuario está autenticado
   if (req.isAuthenticated()) {
-    res.json({ success: true, message: 'Registro fallido' });
+    const token = jwt.sign({ id: req.user._id }, token_secreto, { expiresIn: 60*60*24});
+    res.json({ success: true, message: 'Registro exitoso', auth: true, token: token });
   } else {
-    res.status(400).json({ success: false, message: 'Error al registrar el usuario' });
+    res.status(400).json({ success: false, message: 'Credecnailes Error al registrar el usuario' });
   }
 };
 

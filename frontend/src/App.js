@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
+import axios from 'axios'
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Portada from './componentes/Portada';
 import Footer from './componentes/Footer';
@@ -13,8 +14,26 @@ import Historial from './componentes/Historial'
 import Signup from './componentes/Signup';
 import Signin from './componentes/Signin';
 
+const API_URL = 'http://localhost:4000/api/users'; // Reemplaza con la URL de tu servidor backend
 
 function App() {
+
+  const [state, setState] = useState('');
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await axios.get('http://localhost:4000/api/users');
+        setState(res.data);
+      } catch (error) {
+        console.error('Error al obtener los usuarios:', error);
+      }
+    }
+
+    fetchData(); // Llamamos a la función fetchData dentro de useEffect
+
+  }, []); // Agregamos un array vacío como segundo argumento para que useEffect se ejecute solo una vez al montar el componente
+  console.log(state)
   return (
     <BrowserRouter>
       <Routes>
