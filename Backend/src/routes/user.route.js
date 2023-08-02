@@ -29,6 +29,7 @@ router.route('/logout')
 router.route('/me')
   .get(verifyToken, async (req, res, next) => {
     const user = await User.findById(req.id, {password: 0})  //Que no retorne la constraseña encriptada x seguridad 
+    //const user = await User.findById(req.id) 
     if(!user){
       return res.status(404).send(" no encontree al usuario")
     }
