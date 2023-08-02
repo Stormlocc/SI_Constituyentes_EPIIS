@@ -1,3 +1,4 @@
+// user.controller.js
 /**********  Este archivo es llamado de user.router.js **********/
 
 //Importamos el modelo 
@@ -17,8 +18,8 @@ userCtrl.getUsers = async (req,res) => {
 userCtrl.signin = (req, res) => {
   // Verifica si el usuario está autenticado
   if (req.isAuthenticated()) {
-    const token = jwt.sign({ id: req.user._id }, "token_secreto", { expiresIn: 60*60*24 });
-    res.json({ auth: true, token: token });
+    const token = jwt.sign({ id: req.user._id }, token_secreto, { expiresIn: 60*60*24 });
+    res.json({ auth: true, token: token, success:true });
   } else {
     // La autenticación ha fallado, puedes enviar un mensaje de error
     res.status(401).json({ auth: false, token: null, message: 'Credenciales inválidas' });
@@ -42,35 +43,6 @@ userCtrl.logout = (req, res) => {
     res.json({ message: 'Sesión cerrada exitosamente' });
   });
 };
-
-// Crea usuario
-userCtrl.crearUser = async(req,res) => {
-    //que recibe
-    console.log(req.body);
-    const {email, password} = req.body;
-    
-    const newUser = new User({
-        email: email,
-        password: password,
-        
-    });
-    await newUser.save();
-    res.json({message: 'guardado'})
-    
-};
-
-
-userCtrl.crearUser = async (req, res) => {
-    try {
-      const { email, password } = req.body;
-      const newUser = new User({ email, password });
-      await newUser.save();
-      res.json({ message: 'Usuario registrado exitosamente' });
-    } catch (error) {
-      // Si ocurre un error de validación, envía un objeto con mensajes de error en la respuesta
-      res.status(400).json({ error: 'Error al registrar el usuario', validationErrors: error.errors });
-    }
-  };
 
 userCtrl.getUser = (req,res) => res.json({usuario: 'Users de pepito'});
 
