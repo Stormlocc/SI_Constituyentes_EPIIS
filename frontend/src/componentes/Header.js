@@ -6,6 +6,9 @@ export default function Header() {
   const navigate = useNavigate();
   const handleSignout = async () => {
     try {
+        
+      // Elimina el token del local storage al hacer logout
+      localStorage.removeItem('token');
       // Envía una solicitud GET al backend para cerrar la sesión
       await axios.get('http://localhost:4000/api/users/logout');
 
