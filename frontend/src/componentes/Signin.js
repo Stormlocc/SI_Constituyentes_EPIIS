@@ -18,6 +18,10 @@ export default function Signin() {
         email: email,
         password: password,
       });
+      // Aquí recuperar el token y guardarlo en el localStorage
+      if (response.data.auth && response.data.token) {
+        localStorage.setItem('token', response.data.token);
+      }
       // Aquí puedes manejar la respuesta del servidor si es necesario
       if(response.data.success){
         // Por ejemplo, si la autenticación es exitosa, redirige a '/dashboard'

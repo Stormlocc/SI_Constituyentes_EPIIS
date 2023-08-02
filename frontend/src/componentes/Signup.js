@@ -17,7 +17,11 @@ export default function Signup() {
         email: email,
         password: password,
       });
-  
+      //console.log("Responseeee",response)
+      // Aquí recuperar el token y guardarlo en el localStorage
+      if (response.data.auth && response.data.token) {
+        localStorage.setItem('token', response.data.token);
+      }
       // Si la respuesta es exitosa, redirige al usuario a una página específica
       if (response.data.success) {
         navigate('/dashboard'); // Por ejemplo, redirige a '/dashboard'

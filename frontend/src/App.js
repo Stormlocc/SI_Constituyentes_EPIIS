@@ -33,7 +33,7 @@ function App() {
     fetchData(); // Llamamos a la función fetchData dentro de useEffect
 
   }, []); // Agregamos un array vacío como segundo argumento para que useEffect se ejecute solo una vez al montar el componente
-  console.log(state)
+  
   return (
     <BrowserRouter>
       <Routes>
