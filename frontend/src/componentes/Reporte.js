@@ -6,8 +6,10 @@ export default function Reporte() {
 
 	/******* VERIFICAR SI EL USUARIO INICIO SESION PARA MOSTRAR EL COMPONENTE  *******/
 	const [user, setUser] = useState(null);
+	const [usersList, setUsersList] = useState([]);
 	const navigate = useNavigate();
 	useEffect(() => {
+
 		async function fetchUserData() {
 			try {
 				const response = await axios.get('http://localhost:4000/api/users/me', {
@@ -28,7 +30,18 @@ export default function Reporte() {
 			}
 		}
 
+		async function fetchUsersList() {
+			try {
+				const response = await axios.get('http://localhost:4000/api/users');
+				setUsersList(response.data); // Guarda la lista de usuarios en el estado local
+			} catch (error) {
+				console.error('Error al obtener la lista de usuarios:', error);
+				// Manejar errores aquí
+			}
+		}
+
 		fetchUserData();
+		fetchUsersList();
 	}, [navigate]);
 
 
@@ -72,8 +85,8 @@ export default function Reporte() {
 										</tr>
 									</thead>
 									<tbody>
-										{user ? (
-											<tr>
+										{usersList.map((user) => (
+											<tr key={user._id}>
 												<td>
 													<img
 														src="dist/img/default-150x150.png"
@@ -83,9 +96,7 @@ export default function Reporte() {
 													{user.nombres}
 												</td>
 												<td>{user.apellidos}</td>
-												<td>
-													{user.tipo_user}
-												</td>
+												<td>{user.tipo_user}</td>
 												<td>
 													<a href="#" className="text-muted">
 														<i className="fas fa-search" />
@@ -93,12 +104,7 @@ export default function Reporte() {
 													</a>
 												</td>
 											</tr>
-										) : (
-											<tr>
-												<td colSpan="4">Cargando datos del perfil...</td>
-											</tr>
-										)}
-
+										))}
 									</tbody>
 								</table>
 							</div>
