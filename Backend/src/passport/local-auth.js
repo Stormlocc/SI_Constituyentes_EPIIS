@@ -4,30 +4,32 @@ const LocalStrategy = require('passport-local').Strategy
 const User = require('../models/user')
 
 //ARGUMENTOS: Definir el nombre de la funcion, ahora utilizamos la funcion qur recibe 2 parametros ((config), (funcio)=>)
+// Estrategia personalizada para el registro local con datos adicionales
 passport.use('local-signup', new LocalStrategy({
   usernameField: 'email',
-  passwordField: 'password'
-}, async (email, password, done) => {
+  passwordField: 'password',
+  passReqToCallback: true // Permite pasar req como primer argumento a la función de verificación
+}, async (req, email, password, done) => {
+
+  const { nombres, apellidos, tipo_user } = req.body; // Obtener datos adicionales de req.body
   try {
-    const existingUser = await User.findOne({ email: email });
+      const existingUser = await User.findOne({ email: email });
 
-    if (existingUser) {
-      return done(null, false, { message: 'El correo electrónico ya está registrado.' });
-    }
+      if (existingUser) {
+          return done(null, false, { message: 'El correo electrónico ya está registrado.' });
+      }
 
-    const newUser = new User();
-    newUser.email = email;
-    newUser.password = await newUser.encryptPassword(password);
-    await newUser.save();
+      const newUser = new User();
+      newUser.email = email;
+      newUser.password = await newUser.encryptPassword(password);
+      newUser.nombres = nombres; // Asignar nombres desde req.body
+      newUser.apellidos = apellidos; // Asignar apellidos desde req.body
+      newUser.tipo_user = tipo_user; // Asignar tipo_user desde req.body
+      await newUser.save();
+      done(null, newUser);
+  } catch (error) {done(error)}
 
-    // Pasa el usuario autenticado al llamar a done
-    done(null, newUser);
-
-  } catch (error) {
-    done(error);
-  }
 }));
-
 
 
 passport.use('local-signin', new LocalStrategy({

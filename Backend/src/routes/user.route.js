@@ -22,6 +22,7 @@ router.route('/signin')
 
 router.route('/signup')
   .post(passport.authenticate('local-signup'),signup)
+  //.get(res.json({"hola amigos":"asdf"}))
 
 router.route('/logout')
   .get(logout)
@@ -33,7 +34,6 @@ router.route('/me')
     if(!user){
       return res.status(404).send(" no encontree al usuario")
     }
-
     res.json(user)
   });
 
