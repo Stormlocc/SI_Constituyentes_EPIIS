@@ -37,7 +37,9 @@ export default function Profile() {
         <h1>Este es el perfil</h1>
         {user ? (
           <>
-            <p>Nombre de usuario: {user.email}</p>
+            <p>Nombre de usuario: {user.nombres}</p>
+            <p>Apellido de usuario: {user.apellidos}</p>
+            <p>Tipo de usuario: {user.tipo_user}</p>
             <p>Correo electrónico: {user.email}</p>
             {/* Mostrar más detalles del usuario si es necesario */}
           </>

@@ -50,7 +50,7 @@ export default function Aside() {
                 <img src="dist/img/user2-160x160.jpg" className="img-circle elevation-2" alt="User Image" />
             </div>
             <div className="info">
-                <Link to="/profile" className="d-block">Alexander Pierce</Link>
+                <Link to="/profile" className="d-block">{user.nombres} {user.apellidos}</Link>
             </div>
             </div>
             {/* SidebarSearch Form */}

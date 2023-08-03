@@ -9,27 +9,27 @@ export default function Reporte() {
 	const navigate = useNavigate();
 	useEffect(() => {
 		async function fetchUserData() {
-		  try {
-			const response = await axios.get('http://localhost:4000/api/users/me', {
-			  headers: {
-				'x-access-token': localStorage.getItem('token'),
-			  },
-			});
-			setUser(response.data); // Guarda el usuario en el estado local
-		  } catch (error) {
-			console.error('Error al obtener los datos del usuario:', error);
-			// Aquí puedes manejar los diferentes errores según el código de estado
-			if (error.response && error.response.status === 401) {
-			  // Redirige al usuario a la página de inicio de sesión si el token es inválido o no se proporciona
-			  navigate('/');
-			} else {
-			  // Manejar otros errores aquí
+			try {
+				const response = await axios.get('http://localhost:4000/api/users/me', {
+					headers: {
+						'x-access-token': localStorage.getItem('token'),
+					},
+				});
+				setUser(response.data); // Guarda el usuario en el estado local
+			} catch (error) {
+				console.error('Error al obtener los datos del usuario:', error);
+				// Aquí puedes manejar los diferentes errores según el código de estado
+				if (error.response && error.response.status === 401) {
+					// Redirige al usuario a la página de inicio de sesión si el token es inválido o no se proporciona
+					navigate('/');
+				} else {
+					// Manejar otros errores aquí
+				}
 			}
-		  }
 		}
-	  
+
 		fetchUserData();
-	  }, [navigate]);
+	}, [navigate]);
 
 
 	return (
@@ -39,7 +39,7 @@ export default function Reporte() {
 				{/* Content Header (Page header) */}
 				<div className="content-header">
 					<div className="container-fluid">
-								<h1 className="m-0">Informacion de constituyentes EPIIS</h1>
+						<h1 className="m-0">Informacion de constituyentes EPIIS</h1>
 					</div>{/* /.container-fluid */}
 				</div>
 				{/* /.content-header */}
@@ -65,33 +65,39 @@ export default function Reporte() {
 								<table className="table table-striped table-valign-middle">
 									<thead>
 										<tr>
-											<th>Identificador</th>
-											<th>DNI</th>
-											<th>Nombre</th>
-											<th>Apellidos</th>
+											<th>NOMBRES</th>
+											<th>APELLIDOS</th>
+											<th>ROL</th>
+											<th>EMAIL</th>
 										</tr>
 									</thead>
 									<tbody>
-										{/* Agregar <tr> para cada fila */}
-										<tr>
-											<td>
-												<img src="dist/img/default-150x150.png" alt="Product 1" className="img-circle img-size-32 mr-2" />
-												Docente 1
-											</td>
-											<td>67886501</td>
-											<td>
-												<small className="text-success mr-1">
-													<i className="fas fa-arrow-up" />
-													12%
-												</small>
-												Director de escuela
-											</td>
-											<td>
-												<a href="#" className="text-muted">
-													<i className="fas fa-search" />
-												</a>
-											</td>
-										</tr>
+										{user ? (
+											<tr>
+												<td>
+													<img
+														src="dist/img/default-150x150.png"
+														alt="Product 1"
+														className="img-circle img-size-32 mr-2"
+													/>
+													{user.nombres}
+												</td>
+												<td>{user.apellidos}</td>
+												<td>
+													{user.tipo_user}
+												</td>
+												<td>
+													<a href="#" className="text-muted">
+														<i className="fas fa-search" />
+														{user.email}
+													</a>
+												</td>
+											</tr>
+										) : (
+											<tr>
+												<td colSpan="4">Cargando datos del perfil...</td>
+											</tr>
+										)}
 
 									</tbody>
 								</table>
