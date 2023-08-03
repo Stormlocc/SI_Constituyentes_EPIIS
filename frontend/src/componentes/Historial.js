@@ -1,23 +1,35 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios'
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function Historial() {
   
-  const [users, setUsers] = useState([]);
-
-  //Es un hook como el use state
-  useEffect( ()=>{fetchData()}, [] )
-
-  async function fetchData() {
-    try {
-      // fetch permite hacer peticiones http como post get put delete
-      const res = await axios.get('http://localhost:4000/api/perfil');
-      setUsers(res.data);
-      console.log(users);
-    } catch (error) {
-      console.error('Error al obtener los datos:', error);
-    }
-  }
+	/******* VERIFICAR SI EL USUARIO INICIO SESION PARA MOSTRAR EL COMPONENTE  *******/
+	const [user, setUser] = useState(null);
+	const navigate = useNavigate();
+	useEffect(() => {
+		async function fetchUserData() {
+		  try {
+			const response = await axios.get('http://localhost:4000/api/users/me', {
+			  headers: {
+				'x-access-token': localStorage.getItem('token'),
+			  },
+			});
+			setUser(response.data); // Guarda el usuario en el estado local
+		  } catch (error) {
+			console.error('Error al obtener los datos del usuario:', error);
+			// Aquí puedes manejar los diferentes errores según el código de estado
+			if (error.response && error.response.status === 401) {
+			  // Redirige al usuario a la página de inicio de sesión si el token es inválido o no se proporciona
+			  navigate('/');
+			} else {
+			  // Manejar otros errores aquí
+			}
+		  }
+		}
+	  
+		fetchUserData();
+	  }, [navigate]);
 
   return (
     <>
@@ -32,10 +44,6 @@ export default function Historial() {
       </div>
       <div className='col-md-8'>
         <ul className='list-group'>
-          {users.map(user=> 
-            (<li key={user._id} className='list-group' >
-            {user.nombres}</li>))
-          }
         </ul>
       </div>
     </div>

@@ -14,14 +14,13 @@ export default function Profile() {
             'x-access-token': localStorage.getItem('token'),
           },
         });
-  
         setUser(response.data); // Guarda el usuario en el estado local
       } catch (error) {
         console.error('Error al obtener los datos del usuario:', error);
         // Aquí puedes manejar los diferentes errores según el código de estado
         if (error.response && error.response.status === 401) {
           // Redirige al usuario a la página de inicio de sesión si el token es inválido o no se proporciona
-          navigate('/signin');
+          navigate('/');
         } else {
           // Manejar otros errores aquí
         }
