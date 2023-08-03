@@ -74,8 +74,7 @@ export default function Aside() {
                     {/* Sidebar Menu */}
                     <nav className="mt-2">
                         <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                            {/* Add icons to the links using the .nav-icon class
-                with font-awesome or any other icon font library */}
+                            {/* Add icons to the links using the .nav-icon class with font-awesome or any other icon font library */}
                             <li className="nav-item menu-open">
                                 <a href="#" className="nav-link active">
                                     <i className="nav-icon fas  fa-globe" />

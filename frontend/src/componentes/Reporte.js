@@ -2,11 +2,15 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+const json2csv = require('json2csv');
+
 export default function Reporte() {
 
 	/******* VERIFICAR SI EL USUARIO INICIO SESION PARA MOSTRAR EL COMPONENTE  *******/
 	const [user, setUser] = useState(null);
 	const [usersList, setUsersList] = useState([]);
+	const [downloadCSV, setDownloadCSV] = useState(false);
+
 	const navigate = useNavigate();
 	useEffect(() => {
 
@@ -40,10 +44,29 @@ export default function Reporte() {
 			}
 		}
 
+		if (downloadCSV) {
+			const fields = ['nombres', 'apellidos', 'tipo_user', 'email'];
+            const csvData = json2csv.parse(usersList, { fields });
+			
+            const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            link.href = url;
+            link.setAttribute('download', 'constituyentes.csv');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+			
+            setDownloadCSV(false);
+        }
+
 		fetchUserData();
 		fetchUsersList();
-	}, [navigate]);
+	}, [navigate, downloadCSV, usersList]);
 
+	const handleDownloadCSV = () => {
+        setDownloadCSV(true);
+    };
 
 	return (
 		<>
@@ -66,7 +89,7 @@ export default function Reporte() {
 							<div className="card-header border-0">
 								<h3 className="card-title">Lista de constituyentes</h3>
 								<div className="card-tools">
-									<a href="#" className="btn btn-tool btn-sm">
+									<a href="#" className="btn btn-tool btn-sm" onClick={handleDownloadCSV}>
 										<i className="fas fa-download" />
 									</a>
 									<a href="#" className="btn btn-tool btn-sm">

@@ -31,4 +31,8 @@ Frontend:
 
     Para mejorar las preticiones http instlar fetch
     >npm install axios
-    
+
+    Para descargar los archivos instalamos json2csv y dependencias para que funcione
+    > npm i json2csv
+    > npm install stream-browserify os-browserify
+
