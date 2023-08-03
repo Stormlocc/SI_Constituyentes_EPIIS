@@ -1,3 +1,4 @@
+//Implementar cada usuario para que de opciones con js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -98,7 +99,7 @@ export default function Reporte() {
 								</div>
 							</div>
 							<div className="card-body table-responsive p-0">
-								<table className="table table-striped table-valign-middle">
+								<table className="table table-striped table-valign-middle table-bordered">
 									<thead>
 										<tr>
 											<th>NOMBRES</th>

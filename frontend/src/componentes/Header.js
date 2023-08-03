@@ -182,7 +182,7 @@ export default function Header() {
                     </li>
                     <li className="nav-item nav-link">
                         <div>
-                            <button onClick={handleSignout}>Cerrar Sesión</button>
+                            <button className=" btn-outline-danger" onClick={handleSignout}>Cerrar Sesión</button>
                         </div>
 
                     </li>

@@ -11,7 +11,7 @@ passport.use('local-signup', new LocalStrategy({
   passReqToCallback: true // Permite pasar req como primer argumento a la función de verificación
 }, async (req, email, password, done) => {
 
-  const { nombres, apellidos, tipo_user } = req.body; // Obtener datos adicionales de req.body
+  const { nombres, apellidos, tipo_user , perfil} = req.body; // Obtener datos adicionales de req.body
   try {
       const existingUser = await User.findOne({ email: email });
 
@@ -25,6 +25,8 @@ passport.use('local-signup', new LocalStrategy({
       newUser.nombres = nombres; // Asignar nombres desde req.body
       newUser.apellidos = apellidos; // Asignar apellidos desde req.body
       newUser.tipo_user = tipo_user; // Asignar tipo_user desde req.body
+      newUser.perfil = perfil; 
+      console.log(newUser)
       await newUser.save();
       done(null, newUser);
   } catch (error) {done(error)}
