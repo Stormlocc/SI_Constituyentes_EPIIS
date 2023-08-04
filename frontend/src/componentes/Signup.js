@@ -36,34 +36,41 @@ export default function Signup() {
   };
 
   return (
-    <>
-      <div>
-        <h1>Signup Registrar usuario</h1>
-        <Link to="/dashboard">Dashboard</Link>
-      </div>
-
-      <div>
+    <div className='position-fixed w-100 h-100 d-flex flex-column align-items-center justify-content-center' style={{ background: 'rgba(0, 0, 0, 0.3)' } }>
+      <div className='position-fixed w-100 h-100 d-flex align-items-center justify-content-center' >
+      <div style={{ background: 'rgba(255, 255, 255, 0.9)', padding: '20px', borderRadius: '10px', margin: '30px' }}>
+      <div><h2>Registrarse</h2></div>
         <form onSubmit={handleSubmit}>
-            <div>
-              <input
-                type="email"
-                name="email"
-                placeholder="Ingrese su email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <input
-                type="password"
-                name="password"
-                placeholder="Ingrese su contraseña"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <button type="submit">Ingresar</button>
-            </div>
-          </form>
-          {error && <div>{error}</div>} {/* Mostrar el mensaje de error si existe */}
+        <ul></ul>
+        <ul style={{ listStyle: 'none', padding: '0', margin: '0' }}>
+              <li style={{ marginBottom: '30px' }}>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Ingrese su email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </li>
+              <li style={{ marginBottom: '30px' }}>
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Ingrese su contraseña"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </li>
+              <li>
+                <button type="submit" style={{width: '100%', backgroundColor: 'transparent', border: '1px solid blue', color: 'blue', padding: '5px 10px', borderRadius: '5px', cursor: 'pointer' }}>
+                  Ingresar</button>
+              </li>
+            </ul>
+        </form>
+        {error && <div>{error}</div>} {/* Mostrar el mensaje de error si existe */}
       </div>
-    </>
+      </div>
+    </div>
   );
+  
 }

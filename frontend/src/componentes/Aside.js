@@ -91,13 +91,13 @@ export default function Aside() {
                                     </li>
 
                                     <li className="nav-item">
-                                        <a href="https://www.unsaac.edu.pe/" target="_blank" className="nav-link">
+                                        <a href="https://www.facebook.com/profile.php?id=100093387651558" target="_blank" className="nav-link">
                                             <i className="fas fa-mouse-pointer nav-icon"></i><p>Facebook</p>
                                         </a>
                                     </li>
 
                                     <li className="nav-item">
-                                        <a href="https://www.unsaac.edu.pe/" target="_blank" className="nav-link">
+                                        <a href="http://in.unsaac.edu.pe/home/" target="_blank" className="nav-link">
                                             <i className="fas fa-mouse-pointer nav-icon"></i><p>Sitio web EPIIS</p>
                                         </a>
                                     </li>

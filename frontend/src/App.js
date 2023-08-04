@@ -7,7 +7,6 @@ import Header from './componentes/Header'
 import Reporte from './componentes/Reporte'
 import Aside from './componentes/Aside'
 import Profile from './componentes/Profile';
-import ActualizarInformacion from './componentes/ActualizarInformacion';
 import Buscar from './componentes/Buscar';
 import Consultar from './componentes/Consultar'
 import Filtros from './componentes/Filtros'
@@ -41,14 +40,14 @@ function App() {
         <Route path='/'  element={<Portada/>}  />
 
         <Route path='/signup' element={<>
-                                  <Portada />
                                 <Signup/> 
+                                  <Portada />
         </>
         } />
 
         <Route path='/signin' element={<>
-                                  <Portada />
                                 <Signin/> 
+                                  <Portada />
         </>
         } />
 

@@ -36,7 +36,6 @@ userCtrl.signup = (req, res) => {
   }
 };
 
-
 userCtrl.logout = (req, res) => {
   // Utiliza req.logout() para cerrar la sesión del usuario
   req.logout(() => {

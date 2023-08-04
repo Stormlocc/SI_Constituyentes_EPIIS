@@ -22,7 +22,6 @@ router.route('/signin')
 
 router.route('/signup')
   .post(passport.authenticate('local-signup'), signup)
-//.get(res.json({"hola amigos":"asdf"}))
 
 router.route('/logout')
   .get(logout)
