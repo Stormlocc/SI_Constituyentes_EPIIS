@@ -25,7 +25,7 @@ export default function Signin() {
       // Aquí puedes manejar la respuesta del servidor si es necesario
       if(response.data.success){
         // Por ejemplo, si la autenticación es exitosa, redirige a '/dashboard'
-        navigate('/dashboard');
+        navigate('/profile');
         console.log(response.data);
       }
 

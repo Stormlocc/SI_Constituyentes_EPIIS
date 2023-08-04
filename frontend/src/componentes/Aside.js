@@ -35,12 +35,11 @@ export default function Aside() {
 
     return (
         <>
-
             {/* Main Sidebar Container */}
             <aside className="main-sidebar sidebar-dark-primary elevation-4 position-fixed h-100">
                 {/* Brand Logo */}
                 <a href='/dashboard' className="brand-link">
-                    <img src="dist/img/Logo_informatica.png" alt="AdminLTE Logo" className="brand-image img-circle elevation-3" style={{ opacity: '.8' }} />
+                    <img src="dist/img/informatica.png" alt="AdminLTE Logo" className="brand-image img-circle elevation-3" style={{ opacity: '.8' }} />
                     <span className="brand-text font-weight-light">CONSTITUYENTES</span>
                 </a>
                 {/* Sidebar */}
@@ -105,51 +104,38 @@ export default function Aside() {
                                 </ul>
                             </li>
 
-
                             <li className="nav-header">MENU OPCIONES</li>
 
                             <li className="nav-item">
-                                <Link to="/actualizarCte" className="nav-link">
+                                <Link to="/Profile" className="nav-link">
                                     <i className="nav-icon fas fa-columns" />
-                                    <p>Actualizar informacion</p>
+                                    <p>Perfil</p>
                                 </Link>
                             </li>
+                            {user && user.tipo_user !== 'constituyente' && (
+                                <>
+                                    <li className="nav-item">
+                                        <Link to="/filtros" className="nav-link">
+                                            <i className="nav-icon fas fa-columns" />
+                                            <p>Filtros constituyentes</p>
+                                        </Link>
+                                    </li>  
                             <li className="nav-item">
-                                <Link to="/historial" className="nav-link">
+                                <Link to="/searchEgresantes" className="nav-link">
                                     <i className="nav-icon fas fa-columns" />
-                                    <p>Filtros constituyentes</p>
+                                    <p>Busqueda egresantes</p>
                                 </Link>
                             </li>
 
                             <li className="nav-item">
-                                <a href="#" className="nav-link">
-                                    <i className="nav-icon far fa-plus-square" />
-                                    <p>
-                                        Listar
-                                        <i className="fas fa-angle-left right" />
-                                    </p>
-                                </a>
-                                <ul className="nav nav-treeview">
-                                    <li className="nav-item">
-                                        <Link to="/consultar" className="nav-link">
-                                            <i className="far fa-circle nav-icon" />
-                                            <p>Consultar constituyentes</p>
-                                        </Link>
-                                    </li>
-                                    <li className="nav-item">
-                                        <Link to="/buscar" className="nav-link">
-                                            <i className="far fa-circle nav-icon" />
-                                            <p>Buscar constituyentes</p>
-                                        </Link>
-                                    </li>
-                                    <li className="nav-item">
-                                        <Link to="/dashboard" className="nav-link">
-                                            <i className="far fa-circle nav-icon" />
-                                            <p>Reporte constituyentes</p>
-                                        </Link>
-                                    </li>
-                                </ul>
+                                <Link to="/searchCertificados" className="nav-link">
+                                    <i className="nav-icon fas fa-columns" />
+                                    <p>Busqueda Certificados</p>
+                                </Link>
                             </li>
+                            </>
+                            )}
+
 
                             <li className="nav-header">OTROS</li>
                             <li className="nav-item">

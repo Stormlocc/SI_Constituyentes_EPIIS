@@ -24,7 +24,7 @@ export default function Signup() {
       }
       // Si la respuesta es exitosa, redirige al usuario a una página específica
       if (response.data.success) {
-        navigate('/dashboard'); // Por ejemplo, redirige a '/dashboard'
+        navigate('/profile'); // Por ejemplo, redirige a '/dashboard'
       } else {
         // Si hay un mensaje de error en la respuesta, muestra el mensaje en el frontend
         setError(response.data.message || 'Error 1 al iniciar sesión. Verifica tus credenciales de registro.');

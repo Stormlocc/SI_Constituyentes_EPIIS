@@ -59,7 +59,7 @@ function App() {
                                   <Footer />
         </>
         } />
-        <Route path='/dashboard' element={<>
+        <Route path='/searchCertificados' element={<>
                                   <Header />
                                   <Reporte />
                                   <Aside />
@@ -67,7 +67,7 @@ function App() {
         </>
         } />
 
-        <Route path='/actualizarCte' element={<>
+        <Route path='/searchEgresantes' element={<>
                                   <Header />
                                   <ActualizarInformacion />
                                   <Aside />
@@ -75,7 +75,7 @@ function App() {
         </>
         } />
 
-        <Route path='/historial' element={<>
+        <Route path='/filtros' element={<>
                                   <Header />
                                   <Filtros />
                                   <Aside />

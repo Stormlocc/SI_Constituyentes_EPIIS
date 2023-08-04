@@ -13,7 +13,7 @@ export default function Portada() {
       <div className="row w-100">
         <div className="col-md-6 mx-auto">
           <h1 className="text-center">PORTADA CONSTITUYENTES</h1>
-          <Link className='navbar-brand d-block text-center mb-3' to='/dashboard'>
+          <Link className='navbar-brand d-block text-center mb-3' to='/filtros'>
             Dashboard
           </Link>
         </div>
