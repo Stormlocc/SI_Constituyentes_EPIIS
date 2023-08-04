@@ -1,4 +1,4 @@
-//Implementar cada usuario para que de opciones con js
+//	 DASHBOARD
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
