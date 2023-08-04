@@ -7,6 +7,7 @@ export default function Profile() {
   const [certificacionNombre, setCertificacionNombre] = useState('');
   const [certificacionFecha, setCertificacionFecha] = useState('');
   const [aceptoAgregar, setAceptoAgregar] = useState(false);
+  const [aceptoEditar, setAceptoEditar] = useState(false);
   const navigate = useNavigate();
 
   const handleCertificacionChange = (event) => {
@@ -59,39 +60,42 @@ export default function Profile() {
   const handleEditSubmit = async (event) => {
     event.preventDefault();
 
-    const updatedData = {
-      nombres: event.target.inputName.value,
-      email: event.target.inputEmail.value,
-      tipo_user: event.target.inputTipo_user.value,
-      perfil: {
-        titulo: [
-          {
-            nombre: event.target.inputTituloNombre.value,
-            fecha: event.target.inputTituloFecha.value,
+    if (aceptoEditar) { // Asegúrate de tener un estado para aceptoEditar similar a aceptoAgregar
+      const updatedData = {
+        nombres: event.target.inputName.value,
+        email: event.target.inputEmail.value,
+        tipo_user: event.target.inputTipo_user.value,
+        perfil: {
+          titulo: [
+            {
+              nombre: event.target.inputTituloNombre.value,
+              fecha: event.target.inputTituloFecha.value,
+            },
+          ],
+          area: event.target.inputArea.value,
+          cargo: event.target.inputCargo.value,
+        }
+      };
+
+      try {
+        // Realizar la petición PUT para editar los datos
+        const response = await axios.put('http://localhost:4000/api/users/edit', updatedData, {
+          headers: {
+            'x-access-token': localStorage.getItem('token'),
           },
-          // Aquí puedes agregar más objetos si hay más títulos
-        ],
-        area: event.target.inputArea.value,
-        cargo: event.target.inputCargo.value,
-        // Agrega otros campos del perfil si es necesario
+        });
+
+        // Actualizar el estado del usuario con los datos editados
+        setUser(response.data);
+        alert('¡Datos editados exitosamente!');
+      } catch (error) {
+        console.error('Error al editar los datos:', error);
+        // Manejar errores aquí
       }
-    };
-
-    try {
-      // Realizar la petición PUT para editar los datos
-      const response = await axios.put('http://localhost:4000/api/users/edit', updatedData, {
-        headers: {
-          'x-access-token': localStorage.getItem('token'),
-        },
-      });
-
-      // Actualizar el estado del usuario con los datos editados
-      setUser(response.data);
-      alert('¡Datos editados exitosamente!');
-    } catch (error) {
-      console.error('Error al editar los datos:', error);
-      // Manejar errores aquí
+    } else {
+      alert("Tiene que activar el botón para aceptar los cambios");
     }
+    setAceptoEditar(false); // Asegúrate de resetear aceptoEditar después del submit
   };
 
   useEffect(() => {
@@ -161,7 +165,7 @@ export default function Profile() {
                   <li className="list-group-item">
                     <b>Cargo</b> <a className="float-right">{user?.perfil.cargo}</a>
                   </li>
-                  </ul>
+                </ul>
               </div>
               {/* /.card-body */}
             </div>
@@ -208,7 +212,7 @@ export default function Profile() {
                         <h1 className="card-title">Lista de certificaciones</h1>
                       </div>
                       <div className="card-body">
-                        <table className="table table-bordered">
+                        <table className="table table-bordered table-hover">
                           <thead>
                             <tr>
                               <th style={{ width: 10 }}>#</th>
@@ -242,14 +246,13 @@ export default function Profile() {
                         </ul>
                       </div>
                     </div>
-
                     <div className="card">
                       <div className="card-header">
                         <h1 className="card-title">Lista de titulos</h1>
                       </div>
                       {/* /.card-header */}
                       <div className="card-body">
-                        <table className="table table-bordered">
+                        <table className="table table-bordered table-hover">
                           <thead>
                             <tr>
                               <th style={{ width: 10 }}>#</th>
@@ -331,17 +334,28 @@ export default function Profile() {
                         <div className="offset-sm-2 col-sm-10">
                           <div className="checkbox">
                             <label>
-                              <input type="checkbox" /> Acepto <a href="#">modificar mis datos</a>
+                              <input
+                                type="checkbox"
+                                checked={aceptoEditar}
+                                onChange={(e) => setAceptoEditar(e.target.checked)}
+                              /> Acepto <a href="#">modificar mis datos</a>
                             </label>
                           </div>
                         </div>
                       </div>
                       <div className="form-group row">
                         <div className="offset-sm-2 col-sm-10">
-                          <button type="submit" className="btn btn-danger"  >Enviar</button>
+                          <button
+                            type="submit"
+                            className="btn btn-danger"
+                            disabled={!aceptoEditar}
+                          >
+                            Enviar
+                          </button>
                         </div>
                       </div>
                     </form>
+
                   </div>
 
                   {/* -------------------------- AGREGAR CERTIFICACION -------------------------------- */}
