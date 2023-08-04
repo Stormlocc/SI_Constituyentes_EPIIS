@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-export default function Historial() {
+export default function Filtros() {
 	const [user, setUser] = useState(null);
 	const navigate = useNavigate();
 

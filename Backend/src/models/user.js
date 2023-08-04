@@ -19,6 +19,7 @@ const userSchema = new mongoose.Schema({
     nombres: String,
     apellidos: String,
     tipo_user: { type: String, trim: true },
+    fecha_egresado: String,
     perfil: perfilSchema
 });
 

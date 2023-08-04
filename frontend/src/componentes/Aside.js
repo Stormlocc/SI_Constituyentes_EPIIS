@@ -117,7 +117,7 @@ export default function Aside() {
                             <li className="nav-item">
                                 <Link to="/historial" className="nav-link">
                                     <i className="nav-icon fas fa-columns" />
-                                    <p>Historial</p>
+                                    <p>Filtros constituyentes</p>
                                 </Link>
                             </li>
 
@@ -153,13 +153,13 @@ export default function Aside() {
 
                             <li className="nav-header">OTROS</li>
                             <li className="nav-item">
-                                <a href="iframe.html" className="nav-link">
+                                <a href="https://adminlte.io/docs/3.1/" className="nav-link">
                                     <i className="nav-icon fas fa-ellipsis-h" />
                                     <p>Acreditacion</p>
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a href="https://adminlte.io/docs/3.1/" className="nav-link">
+                                <a href="https://stormlocc.github.io/INFamily-Plan-Trabajo/" className="nav-link">
                                     <i className="nav-icon fas fa-file" />
                                     <p>Centro Federado</p>
                                 </a>

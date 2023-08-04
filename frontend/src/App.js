@@ -10,7 +10,7 @@ import Profile from './componentes/Profile';
 import ActualizarInformacion from './componentes/ActualizarInformacion';
 import Buscar from './componentes/Buscar';
 import Consultar from './componentes/Consultar'
-import Historial from './componentes/Historial'
+import Filtros from './componentes/Filtros'
 import Signup from './componentes/Signup';
 import Signin from './componentes/Signin';
 
@@ -77,7 +77,7 @@ function App() {
 
         <Route path='/historial' element={<>
                                   <Header />
-                                  <Historial />
+                                  <Filtros />
                                   <Aside />
                                   <Footer />
         </>

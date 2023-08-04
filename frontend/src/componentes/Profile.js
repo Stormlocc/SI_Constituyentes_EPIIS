@@ -107,12 +107,13 @@ export default function Profile() {
           },
         });
         //console.log(response.data)
-        const { nombres, email, apellidos, tipo_user, perfil } = response.data; // Guarda el usuario en el estado local
+        const { nombres, email, apellidos, tipo_user,fecha_egresado, perfil } = response.data; // Guarda el usuario en el estado local
         setUser({
           nombres: nombres,
           email: email,
           apellidos: apellidos,
           tipo_user: tipo_user,
+          fecha_egresado: fecha_egresado,
           perfil: {
             titulo: perfil.titulo,
             capacitacion: perfil.capacitacion,
@@ -154,7 +155,7 @@ export default function Profile() {
                 <p className="text-muted text-center">{user?.tipo_user}</p>
                 <ul className="list-group list-group-unbordered mb-3">
                   <li className="list-group-item">
-                    <b>Fecha de egresado</b> <a className="float-right">17/12/2016</a>
+                    <b>Fecha de egresado</b> <a className="float-right">{user?.fecha_egresado}</a>
                   </li>
                   <li className="list-group-item">
                     <b>Constituyente</b> <a className="float-right">{user?.nombres} {user?.apellidos}</a>
