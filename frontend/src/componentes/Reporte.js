@@ -100,23 +100,21 @@ export default function Reporte() {
 							</div>
 							<div className="card-body table-responsive p-0">
 								<table className="table table-striped table-valign-middle table-bordered">
-									<thead>
-										<tr>
-											<th>NOMBRES</th>
-											<th>APELLIDOS</th>
-											<th>ROL</th>
-											<th>EMAIL</th>
-										</tr>
-									</thead>
+										<thead>
+											<tr>
+												<th><i className="far fa-address-card" /> Nombres</th>
+												<th><i className="far fa-address-card" /> Apellidos</th>
+												<th><i className="fas fa-user-tie" /> Rol</th>
+												<th><i className="fas fa-male" /> Email</th>
+												<th><i className="fas fa-calendar" /> Fecha egrasado</th>
+												<th><i className="fa fa-tasks" /> Cargo</th>
+												<th><i className="fas fa-map-marker-alt" /> Lugar</th>
+											</tr>
+										</thead>
 									<tbody>
 										{usersList.map((user) => (
 											<tr key={user._id}>
 												<td>
-													<img
-														src="dist/img/default-150x150.png"
-														alt="Product 1"
-														className="img-circle img-size-32 mr-2"
-													/>
 													{user.nombres}
 												</td>
 												<td>{user.apellidos}</td>
@@ -127,6 +125,9 @@ export default function Reporte() {
 														{user.email}
 													</a>
 												</td>
+												<td>{user.fecha_egresado}</td>
+												<td>{user.perfil.cargo}</td>
+												<td>{user.perfil.lugar}</td>
 											</tr>
 										))}
 									</tbody>

@@ -120,12 +120,6 @@ export default function Aside() {
                                             <p>Filtros constituyentes</p>
                                         </Link>
                                     </li>  
-                            <li className="nav-item">
-                                <Link to="/searchEgresantes" className="nav-link">
-                                    <i className="nav-icon fas fa-columns" />
-                                    <p>Busqueda egresantes</p>
-                                </Link>
-                            </li>
 
                             <li className="nav-item">
                                 <Link to="/searchCertificados" className="nav-link">
@@ -135,7 +129,6 @@ export default function Aside() {
                             </li>
                             </>
                             )}
-
 
                             <li className="nav-header">OTROS</li>
                             <li className="nav-item">

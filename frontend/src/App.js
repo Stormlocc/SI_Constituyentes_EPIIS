@@ -67,14 +67,6 @@ function App() {
         </>
         } />
 
-        <Route path='/searchEgresantes' element={<>
-                                  <Header />
-                                  <ActualizarInformacion />
-                                  <Aside />
-                                  <Footer />
-        </>
-        } />
-
         <Route path='/filtros' element={<>
                                   <Header />
                                   <Filtros />
